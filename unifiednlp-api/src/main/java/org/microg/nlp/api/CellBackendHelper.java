@@ -333,16 +333,6 @@ public class CellBackendHelper extends AbstractBackendHelper {
                     cells.add(cell);
                 }
             }
-            List<NeighboringCellInfo> neighboringCellInfo = telephonyManager.getNeighboringCellInfo();
-            if (neighboringCellInfo != null) {
-                for (NeighboringCellInfo info : neighboringCellInfo) {
-                    if (!hasCid(info.getCid())) {
-                        Cell cell = parseCellInfo(info);
-                        if (cell == null) continue;
-                        cells.add(cell);
-                    }
-                }
-            }
         } catch (Exception ignored) {
         }
         if (state == State.DISABLING)
